@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import BottomNav from "./BottomNav";
+import ChatBot from "./ChatBot";
 
 interface AppLayoutProps {
   children: ReactNode;
@@ -11,6 +12,7 @@ const AppLayout = ({ children, hideNav }: AppLayoutProps) => {
     <div className="min-h-screen bg-background max-w-lg mx-auto relative">
       <main className={hideNav ? "" : "pb-20"}>{children}</main>
       {!hideNav && <BottomNav />}
+      <ChatBot />
     </div>
   );
 };
