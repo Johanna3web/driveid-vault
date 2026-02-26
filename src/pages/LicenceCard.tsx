@@ -6,6 +6,7 @@ import DigitalCard from "@/components/DigitalCard";
 import AppLayout from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import mockLicenceFront from "@/assets/mock-licence-front.png";
+import mockIdFront from "@/assets/mock-id-front.png";
 import mockPersonPhoto from "@/assets/mock-person-photo.jpg";
 
 const LicenceCard = () => {
@@ -24,7 +25,7 @@ const LicenceCard = () => {
 
   return (
     <AppLayout>
-      <div className="px-5 pt-12 pb-4">
+      <div className="px-5 pt-14 pb-24">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -76,11 +77,26 @@ const LicenceCard = () => {
           />
         </motion.div>
 
-        {/* Digital ID Card */}
+        {/* Mock ID Front */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
+          className="mb-6"
+        >
+          <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
+            Identity Document (Front)
+          </p>
+          <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
+            <img src={mockIdFront} alt="ID Document Front" className="w-full object-cover" />
+          </div>
+        </motion.div>
+
+        {/* Digital ID Card */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.25 }}
           className="mb-8"
         >
           <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
