@@ -6,7 +6,9 @@ import DigitalCard from "@/components/DigitalCard";
 import AppLayout from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import mockLicenceFront from "@/assets/mock-licence-front.png";
+import mockLicenceBack from "@/assets/mock-licence-back.png";
 import mockIdFront from "@/assets/mock-id-front.png";
+import mockIdBack from "@/assets/mock-id-back.png";
 import mockPersonPhoto from "@/assets/mock-person-photo.jpg";
 
 const LicenceCard = () => {
@@ -40,18 +42,33 @@ const LicenceCard = () => {
           <h1 className="text-lg font-bold text-foreground">Digital Cards</h1>
         </motion.div>
 
-        {/* Mock Licence Front */}
+        {/* Licence Front */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="mb-6"
+          className="mb-4"
         >
           <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
             Driver's Licence (Front)
           </p>
           <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
-            <img src={mockLicenceFront} alt="Driver's Licence Front" className="w-full object-cover" />
+            <img src={mockLicenceFront} alt="Driver's Licence Front" className="w-full h-auto object-contain" />
+          </div>
+        </motion.div>
+
+        {/* Licence Back */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.15 }}
+          className="mb-6"
+        >
+          <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
+            Driver's Licence (Back)
+          </p>
+          <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
+            <img src={mockLicenceBack} alt="Driver's Licence Back" className="w-full h-auto object-contain" />
           </div>
         </motion.div>
 
@@ -59,7 +76,7 @@ const LicenceCard = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.15 }}
+          transition={{ delay: 0.2 }}
           className="mb-6"
         >
           <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
@@ -77,18 +94,33 @@ const LicenceCard = () => {
           />
         </motion.div>
 
-        {/* Mock ID Front */}
+        {/* ID Front */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
-          className="mb-6"
+          transition={{ delay: 0.25 }}
+          className="mb-4"
         >
           <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
             Identity Document (Front)
           </p>
           <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
-            <img src={mockIdFront} alt="ID Document Front" className="w-full object-cover" />
+            <img src={mockIdFront} alt="ID Document Front" className="w-full h-auto object-contain" />
+          </div>
+        </motion.div>
+
+        {/* ID Back */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3 }}
+          className="mb-6"
+        >
+          <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
+            Identity Document (Back)
+          </p>
+          <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
+            <img src={mockIdBack} alt="ID Document Back" className="w-full h-auto object-contain" />
           </div>
         </motion.div>
 

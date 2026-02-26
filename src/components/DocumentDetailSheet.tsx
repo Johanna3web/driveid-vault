@@ -71,7 +71,7 @@ const DocumentDetailSheet = ({ document, onClose, onDeleted }: DocumentDetailPro
         exit={{ y: "100%" }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-lg bg-card rounded-t-3xl p-6 pb-10 shadow-2xl border-t border-border"
+        className="w-full max-w-lg bg-card rounded-t-3xl p-6 pb-24 shadow-2xl border-t border-border max-h-[85vh] overflow-y-auto"
       >
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg font-bold text-foreground">Document Details</h2>
