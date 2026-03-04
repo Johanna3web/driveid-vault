@@ -22,24 +22,24 @@ const menuSections = [
   {
     title: "Account",
     items: [
-      { icon: User, label: "Personal Information", desc: "Name, email, phone" },
-      { icon: Lock, label: "Security", desc: "MFA, biometrics, password" },
-      { icon: Bell, label: "Notification Preferences", desc: "Push, email, SMS alerts" },
+      { icon: User, label: "Personal Information", desc: "Name, email, phone", route: "/settings/personal-information" },
+      { icon: Lock, label: "Security", desc: "MFA, biometrics, password", route: "/settings/security" },
+      { icon: Bell, label: "Notification Preferences", desc: "Push, email, SMS alerts", route: "/settings/notifications" },
     ],
   },
   {
     title: "Preferences",
     items: [
-      { icon: Globe, label: "Language", desc: "English" },
+      { icon: Globe, label: "Language", desc: "English", route: "/settings/language" },
     ],
   },
   {
     title: "Support",
     items: [
-      { icon: HelpCircle, label: "Help & FAQ", desc: "Common questions answered" },
-      { icon: MessageSquare, label: "Report a Problem", desc: "Let us know about an issue" },
-      { icon: FileText, label: "Privacy Policy", desc: "POPIA & GDPR compliance" },
-      { icon: Shield, label: "Terms of Service", desc: "Usage terms and conditions" },
+      { icon: HelpCircle, label: "Help & FAQ", desc: "Common questions answered", route: "/settings/help" },
+      { icon: MessageSquare, label: "Report a Problem", desc: "Let us know about an issue", route: "/settings/report" },
+      { icon: FileText, label: "Privacy Policy", desc: "POPIA & GDPR compliance", route: "/settings/privacy" },
+      { icon: Shield, label: "Terms of Service", desc: "Usage terms and conditions", route: "/settings/terms" },
     ],
   },
 ];
@@ -81,7 +81,8 @@ const Settings = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-card rounded-2xl p-4 mb-6 shadow-sm border border-border flex items-center gap-4"
+          onClick={() => navigate("/settings/personal-information")}
+          className="bg-card rounded-2xl p-4 mb-6 shadow-sm border border-border flex items-center gap-4 cursor-pointer"
         >
           <div className="w-14 h-14 rounded-full card-gradient flex items-center justify-center">
             <span className="text-primary-foreground font-bold text-lg">{initials}</span>
@@ -110,6 +111,7 @@ const Settings = () => {
               {section.items.map((menuItem) => (
                 <button
                   key={menuItem.label}
+                  onClick={() => navigate(menuItem.route)}
                   className="w-full flex items-center gap-3 p-3.5 text-left"
                 >
                   <div className="w-9 h-9 rounded-xl bg-secondary flex items-center justify-center flex-shrink-0">

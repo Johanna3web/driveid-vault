@@ -42,33 +42,25 @@ const LicenceCard = () => {
           <h1 className="text-lg font-bold text-foreground">Digital Cards</h1>
         </motion.div>
 
-        {/* Licence Front */}
+        {/* Driver's Licence - Front & Back side by side */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="mb-4"
-        >
-          <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
-            Driver's Licence (Front)
-          </p>
-          <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
-            <img src={mockLicenceFront} alt="Driver's Licence Front" className="w-full h-auto object-contain" />
-          </div>
-        </motion.div>
-
-        {/* Licence Back */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.15 }}
           className="mb-6"
         >
           <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
-            Driver's Licence (Back)
+            Driver's Licence
           </p>
-          <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
-            <img src={mockLicenceBack} alt="Driver's Licence Back" className="w-full h-auto object-contain" />
+          <div className="grid grid-cols-2 gap-2">
+            <div className="rounded-xl overflow-hidden shadow-lg border border-border">
+              <img src={mockLicenceFront} alt="Licence Front" className="w-full h-auto object-cover" />
+              <p className="text-[10px] text-center text-muted-foreground py-1 bg-card">Front</p>
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-lg border border-border">
+              <img src={mockLicenceBack} alt="Licence Back" className="w-full h-auto object-cover" />
+              <p className="text-[10px] text-center text-muted-foreground py-1 bg-card">Back</p>
+            </div>
           </div>
         </motion.div>
 
@@ -76,8 +68,8 @@ const LicenceCard = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
-          className="mb-6"
+          transition={{ delay: 0.15 }}
+          className="mb-8"
         >
           <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
             Digital Driver's Licence
@@ -94,33 +86,25 @@ const LicenceCard = () => {
           />
         </motion.div>
 
-        {/* ID Front */}
+        {/* ID Card - Front & Back side by side */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.25 }}
-          className="mb-4"
-        >
-          <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
-            Identity Document (Front)
-          </p>
-          <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
-            <img src={mockIdFront} alt="ID Document Front" className="w-full h-auto object-contain" />
-          </div>
-        </motion.div>
-
-        {/* ID Back */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.2 }}
           className="mb-6"
         >
           <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
-            Identity Document (Back)
+            Identity Document
           </p>
-          <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
-            <img src={mockIdBack} alt="ID Document Back" className="w-full h-auto object-contain" />
+          <div className="grid grid-cols-2 gap-2">
+            <div className="rounded-xl overflow-hidden shadow-lg border border-border">
+              <img src={mockIdFront} alt="ID Front" className="w-full h-auto object-cover" />
+              <p className="text-[10px] text-center text-muted-foreground py-1 bg-card">Front</p>
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-lg border border-border">
+              <img src={mockIdBack} alt="ID Back" className="w-full h-auto object-cover" />
+              <p className="text-[10px] text-center text-muted-foreground py-1 bg-card">Back</p>
+            </div>
           </div>
         </motion.div>
 
