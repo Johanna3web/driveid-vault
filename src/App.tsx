@@ -12,6 +12,14 @@ import Documents from "./pages/Documents";
 import Vehicles from "./pages/Vehicles";
 import Notifications from "./pages/Notifications";
 import Settings from "./pages/Settings";
+import PersonalInformation from "./pages/settings/PersonalInformation";
+import Security from "./pages/settings/Security";
+import NotificationPreferences from "./pages/settings/NotificationPreferences";
+import Language from "./pages/settings/Language";
+import HelpFAQ from "./pages/settings/HelpFAQ";
+import ReportProblem from "./pages/settings/ReportProblem";
+import PrivacyPolicy from "./pages/settings/PrivacyPolicy";
+import TermsOfService from "./pages/settings/TermsOfService";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +40,14 @@ const App = () => (
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/settings/personal-information" element={<PersonalInformation />} />
+          <Route path="/settings/security" element={<Security />} />
+          <Route path="/settings/notifications" element={<NotificationPreferences />} />
+          <Route path="/settings/language" element={<Language />} />
+          <Route path="/settings/help" element={<HelpFAQ />} />
+          <Route path="/settings/report" element={<ReportProblem />} />
+          <Route path="/settings/privacy" element={<PrivacyPolicy />} />
+          <Route path="/settings/terms" element={<TermsOfService />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
