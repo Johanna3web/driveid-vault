@@ -1,12 +1,31 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Share2, Download, RotateCw } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import QRCode from "react-qr-code";
 import AppLayout from "@/components/AppLayout";
+import { supabase } from "@/integrations/supabase/client";
 
 const QRCodePage = () => {
   const navigate = useNavigate();
-  const qrValue = `DRIVEID://verify/TM-920411-${Date.now()}`;
+  const [profileName, setProfileName] = useState("Loading...");
+  const [idNumber, setIdNumber] = useState("");
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+      const { data } = await supabase.from("profiles").select("full_name, id_number").eq("user_id", user.id).single();
+      if (data) {
+        setProfileName(data.full_name);
+        setIdNumber(data.id_number || "");
+      }
+    };
+    fetchProfile();
+  }, []);
+
+  const initials = profileName.split(" ").map(n => n[0]).join("").substring(0, 2).toUpperCase();
+  const qrValue = `DRIVEID://verify/${initials}-${idNumber}-${Date.now()}`;
 
   return (
     <AppLayout>
@@ -34,10 +53,10 @@ const QRCodePage = () => {
           >
             <div className="text-center mb-5">
               <div className="w-16 h-16 mx-auto mb-3 rounded-full card-gradient flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">TM</span>
+                <span className="text-primary-foreground font-bold text-xl">{initials}</span>
               </div>
-              <h2 className="font-bold text-foreground">Thabo Mokoena</h2>
-              <p className="text-xs text-muted-foreground font-mono">MK 9204 1156 08 3</p>
+              <h2 className="font-bold text-foreground">{profileName}</h2>
+              <p className="text-xs text-muted-foreground font-mono">{idNumber || "—"}</p>
             </div>
 
             <div className="bg-background rounded-2xl p-4 mb-4">
