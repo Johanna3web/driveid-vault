@@ -1,29 +1,14 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, RotateCw } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import DigitalCard from "@/components/DigitalCard";
 import AppLayout from "@/components/AppLayout";
-import { supabase } from "@/integrations/supabase/client";
 import mockLicenceFront from "@/assets/mock-licence-front.png";
 import mockLicenceBack from "@/assets/mock-licence-back.png";
 import mockIdFront from "@/assets/mock-id-front.png";
 import mockIdBack from "@/assets/mock-id-back.png";
-import mockPersonPhoto from "@/assets/mock-person-photo.jpg";
 
 const LicenceCard = () => {
   const navigate = useNavigate();
-  const [profileName, setProfileName] = useState("Loading...");
-
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) return;
-      const { data } = await supabase.from("profiles").select("full_name").eq("user_id", user.id).single();
-      if (data) setProfileName(data.full_name.toUpperCase());
-    };
-    fetchProfile();
-  }, []);
 
   return (
     <AppLayout>
@@ -39,15 +24,15 @@ const LicenceCard = () => {
           >
             <ArrowLeft size={18} className="text-foreground" />
           </button>
-          <h1 className="text-lg font-bold text-foreground">Digital Cards</h1>
+          <h1 className="text-lg font-bold text-foreground">My Cards</h1>
         </motion.div>
 
-        {/* Driver's Licence - Front & Back side by side */}
+        {/* Driver's Licence */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="mb-6"
+          className="mb-8"
         >
           <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
             Driver's Licence
@@ -64,34 +49,12 @@ const LicenceCard = () => {
           </div>
         </motion.div>
 
-        {/* Digital Licence Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.15 }}
-          className="mb-8"
-        >
-          <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
-            Digital Driver's Licence
-          </p>
-          <DigitalCard
-            type="licence"
-            name={profileName}
-            number="MK 9204 1156 08 3"
-            category="B, EB"
-            issueDate="15/03/2022"
-            expiryDate="15/03/2027"
-            photo={mockPersonPhoto}
-            status="valid"
-          />
-        </motion.div>
-
-        {/* ID Card - Front & Back side by side */}
+        {/* Identity Document */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
-          className="mb-6"
+          className="mb-8"
         >
           <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
             Identity Document
@@ -106,27 +69,6 @@ const LicenceCard = () => {
               <p className="text-[10px] text-center text-muted-foreground py-1 bg-card">Back</p>
             </div>
           </div>
-        </motion.div>
-
-        {/* Digital ID Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.25 }}
-          className="mb-8"
-        >
-          <p className="text-xs text-muted-foreground font-medium mb-2 uppercase tracking-wider">
-            Digital Identity Document
-          </p>
-          <DigitalCard
-            type="id"
-            name={profileName}
-            number="9204115608083"
-            issueDate="20/06/2020"
-            expiryDate="20/06/2030"
-            photo={mockPersonPhoto}
-            status="valid"
-          />
         </motion.div>
 
         <motion.div
